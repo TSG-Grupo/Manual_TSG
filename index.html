@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Manual do grupo TSG (Trade & Share Games) para compra, venda e compartilhamento de jogos digitais PS4/PS5." />
+  <title>Manual TSG — Trade &amp; Share Games</title>
+
+  <style>
+    :root{
+      --bg:#0b1020; --text:#e9eefc; --muted:#aab6e6;
+      --line:rgba(233,238,252,.12); --accent:#4fc3ff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(79,195,255,.20), transparent 60%),
+                  radial-gradient(900px 500px at 100% 0%, rgba(160,88,255,.18), transparent 55%),
+                  var(--bg);
+      line-height:1.55;
+    }
+
+    /* Acessibilidade: skip link + foco */
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:auto;
+      width:1px;height:1px;
+      overflow:hidden;
+    }
+    .skip-link:focus{
+      left:14px; top:14px;
+      width:auto;height:auto;
+      padding:10px 12px;
+      border-radius:10px;
+      background: rgba(18,26,51,.95);
+      border:1px solid var(--line);
+      color:var(--text);
+      z-index:9999;
+    }
+    :focus-visible{
+      outline:2px solid var(--accent);
+      outline-offset:2px;
+      border-radius:8px;
+    }
+
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:1050px; margin:0 auto; padding:28px 18px 60px}
+
+    header.header{
+      background: linear-gradient(180deg, rgba(18,26,51,.92), rgba(18,26,51,.65));
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:22px 22px 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .titles{display:flex; flex-direction:column; gap:2px}
+    .t1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:.3px;
+      line-height:1.15;
+    }
+    .t2{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .toplinks{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(11,16,32,.35);
+      color:var(--text);
+      font-size:13px;
+    }
+
+    .grid{display:grid; grid-template-columns: 1fr; gap:16px; margin-top:16px}
+    @media (min-width: 980px){
+      .grid{grid-template-columns: 310px 1fr;}
+      .toc{position:sticky; top:16px; max-height: calc(100vh - 32px); overflow:auto;}
+    }
+
+    aside.toc{
+      background: rgba(18,26,51,.55);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px 14px;
+    }
+    .toc h2{margin:0 0 10px; font-size:16px}
+    .toc ul{margin:0; padding-left:16px}
+    .toc li{margin:6px 0; color:var(--muted)}
+    .toc a{color:var(--text)}
+    .toc .lvl3{margin-left:10px; font-size:13px}
+
+    main.content{
+      background: rgba(18,26,51,.55);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px 18px 22px;
+    }
+
+    h2,h3,h4,h5{scroll-margin-top: 14px}
+    h2{margin:28px 0 10px; font-size:22px}
+    h3{margin:18px 0 10px; font-size:18px}
+    h4{margin:14px 0 8px; font-size:16px}
+    p{margin:10px 0}
+    hr{border:0; border-top:1px solid var(--line); margin:18px 0}
+
+    ol.alpha{list-style: lower-alpha; padding-left: 22px; margin:10px 0}
+    ul.bul{padding-left: 22px; margin:10px 0}
+
+    .note{border-left:4px solid rgba(79,195,255,.7); background: rgba(79,195,255,.08); padding:10px 12px; border-radius:10px; margin:12px 0;}
+    .warn{border-left:4px solid rgba(255,190,70,.85); background: rgba(255,190,70,.10); padding:10px 12px; border-radius:10px; margin:12px 0;}
+
+    .small{font-size:12px; color:var(--muted)}
+    .backtop{margin-top:16px}
+    .backtop a{font-size:13px}
+
+    figure.media { margin: 16px 0 22px; }
+    figure.media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 920px;
+      margin: 0 auto;
+      border-radius: 12px;
+    }
+    figure.media figcaption {
+      max-width: 920px;
+      margin: 10px auto 0;
+      font-size: 0.95em;
+      opacity: 0.85;
+      text-align: center;
+    }
+    figure.media.compact img { max-width: 720px; }
+
+    /* Tabela responsiva no mobile */
+    .table-wrap{
+      width:100%;
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:12px;
+      margin:12px 0 18px;
+    }
+    table.table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 560px; /* evita esmagar demais no mobile */
+    }
+    .table th,.table td{border-bottom:1px solid var(--line); padding:10px 10px; vertical-align: top;}
+    .table th{text-align:left; background: rgba(11,16,32,.45);}
+
+    @media print{
+      body{background:#fff; color:#000}
+      a{color:#000; text-decoration:underline}
+      header.header, aside.toc, main.content{background:#fff; border:1px solid #ddd; box-shadow:none}
+      .badge, .note, .warn{border:1px solid #ddd; background:#fff}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="wrap">
+    <header class="header" id="topo">
+      <div class="titles">
+        <h1 class="t1">Manual TSG</h1>
+        <p class="t2">Trade &amp; Share Games</p>
+      </div>
+
+      <nav class="toplinks" aria-label="Links rápidos">
+        <a class="badge" href="#toc">📌 Ir para o índice</a>
+        <a class="badge" href="#8-alertas-boas-praticas-e-problemas-comuns">⚠️ Alertas</a>
+      </nav>
+    </header>
+
+    <div class="grid">
+      <aside class="toc" id="toc" aria-label="Índice do manual">
+        <h2>Índice (links rápidos)</h2>
+        <ul>
+          <li><a href="#1-estrutura-do-grupo">1. ESTRUTURA DO GRUPO</a></li>
+          <li class="lvl3"><a href="#1-1-grupo-geral-tsg">1.1. Grupo Geral — TSG</a></li>
+          <li class="lvl3"><a href="#1-2-grupos-especificos">1.2. Grupos Específicos</a></li>
+          <li><a href="#2-objetivos-do-grupo">2. OBJETIVOS DO GRUPO</a></li>
+          <li><a href="#3-regras-gerais-do-grupo">3. REGRAS GERAIS DO GRUPO</a></li>
+          <li class="lvl3"><a href="#3-1-regras-de-seguranca-e-confiabilidade">3.1. Regras de Segurança e Confiabilidade</a></li>
+          <li class="lvl3"><a href="#3-2-regras-de-conduta-no-grupo-geral">3.2. Regras de Conduta no Grupo Geral</a></li>
+          <li class="lvl3"><a href="#3-3-regras-dos-grupos-especificos">3.3. Regras dos Grupos Específicos</a></li>
+          <li class="lvl3"><a href="#3-4-penalidades">3.4. Penalidades</a></li>
+          <li><a href="#4-tipos-de-grupos-especificos-e-modelos-de-vagas">4. TIPOS DE GRUPOS ESPECÍFICOS E MODELOS DE VAGAS</a></li>
+          <li class="lvl3"><a href="#4-1-tipos-de-vagas-possiveis">4.1. Tipos de vagas possíveis</a></li>
+          <li class="lvl3"><a href="#4-2-modelos-de-grupos-especificos">4.2. Modelos de Grupos Específicos</a></li>
+          <li><a href="#5-ajuste-de-vagas-desmembramento-e-reagrupamento-em-grupos-especificos">5. AJUSTE DE VAGAS, DESMEMBRAMENTO E REAGRUPAMENTO EM GRUPOS ESPECÍFICOS</a></li>
+          <li class="lvl3"><a href="#5-1-fechamento-do-grupo-com-menos-vagas-recalcular-valores">5.1. Fechamento do grupo com menos vagas</a></li>
+          <li class="lvl3"><a href="#5-2-regras-simplificadas-de-redistribuicao">5.2. Regras simplificadas</a></li>
+          <li class="lvl3"><a href="#5-3-desmembramento-e-reagrupamento-mudanca-de-tamanho-do-grupo">5.3. Desmembramento e reagrupamento</a></li>
+          <li class="lvl3"><a href="#5-4-arredondamento-e-ajuste-final-de-centavos">5.4. Arredondamento</a></li>
+          <li><a href="#6-procedimentos-para-oferta-de-jogos-e-montagem-de-grupo-especifico">6. PROCEDIMENTOS</a></li>
+          <li class="lvl3"><a href="#6-1-passo-a-passo-para-oferta-de-venda-no-grupo-geral">6.1. Passo a passo</a></li>
+          <li><a href="#7-passo-a-passo-para-criar-a-conta-psn-comprar-o-jogo-e-configurar-o-acesso">7. PASSO A PASSO PSN</a></li>
+          <li><a href="#8-alertas-boas-praticas-e-problemas-comuns">8. ALERTAS</a></li>
+        </ul>
+        <p class="small" style="margin-top:10px">
+          Dica: compartilhe links diretos usando <b>#</b> no final da URL (ex.: <i>.../index.html#3-2-regras-de-conduta-no-grupo-geral</i>).
+        </p>
+      </aside>
+
+      <main class="content" id="conteudo">
+        <p>GRUPO DE COMPARTILHAMENTO/</p>
+        <p>COMPRA E VENDA DE JOGOS PS4 / PS5</p>
+        <p>Este documento apresenta as diretrizes para o funcionamento de um Grupo Geral Trade &amp; Share Games (TSG) de compartilhamento de jogos digitais nas plataformas PS4 e PS5...</p>
+
+        <h2 id="1-estrutura-do-grupo">1. ESTRUTURA DO GRUPO</h2>
+
+        <h3 id="1-1-grupo-geral-tsg">1.1. Grupo Geral — TSG</h3>
+        <figure class="media">
+          <img src="img/globo.png" alt="Estrutura do TSG" loading="lazy" decoding="async">
+        </figure>
+
+        <ol class="alpha">
+          <li>Reúne todos os membros interessados em participar do sistema de compartilhamento.</li>
+          <li>É o espaço principal para comunicação, formação de Grupos Específicos e organização geral.</li>
+          <li>Os Administradores são responsáveis por aplicar as regras e mediar conflitos quando necessário.</li>
+        </ol>
+
+        <h3 id="1-2-grupos-especificos">1.2. Grupos Específicos</h3>
+        <ol class="alpha">
+          <li>Subgrupos criados para compartilhar um jogo específico...</li>
+          <li>São formados por participantes que dividem os custos e o acesso ao jogo.</li>
+          <li>Cada Grupo Específico terá um Responsável...</li>
+          <li>Caso não haja consenso...</li>
+        </ol>
+
+        <h2 id="3-regras-gerais-do-grupo">3. REGRAS GERAIS DO GRUPO</h2>
+
+        <h3 id="3-1-regras-de-seguranca-e-confiabilidade">3.1. Regras de Segurança e Confiabilidade</h3>
+
+        <!-- ✅ FIGURE fora do OL (corrige HTML inválido) -->
+        <figure class="media compact">
+          <img src="img/resp-cascata.png" alt="Responsabilidade em cascata (estrutura de indicações no TSG)" loading="lazy" decoding="async">
+        </figure>
+
+        <ol class="alpha">
+          <li>Indique apenas pessoas de confiança...</li>
+          <li>É proibido compartilhar, vender ou organizar jogos obtidos fora de meios legais...</li>
+          <li>Nunca solicite a desativação/encerramento de conta pelo site da PSN...</li>
+          <li>É proibido compartilhar com pessoas de fora do TSG quaisquer dados...</li>
+          <li>Use senhas fortes e exclusivas...</li>
+        </ol>
+
+        <!-- ✅ Tabelas com wrapper responsivo -->
+        <h4>Exemplo de anúncio 1:</h4>
+        <div class="table-wrap" role="region" aria-label="Tabela: exemplo de anúncio 1" tabindex="0">
+          <table class="table">
+            <thead><tr><th>5 VAGAS (SEM PROMOÇÃO)</th><th>3 VAGAS (SEM PROMOÇÃO)</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Jogo: Elden Ring Edicao Padrao<br>Valor: R$ 299,90</td>
+                <td>Jogo: Elden Ring Edicao Padrao<br>Valor: R$ 299,90</td>
+              </tr>
+              <tr>
+                <td>PRIMÁRIA 1 PS4 - R$ 67,48 (VAGO)<br>...</td>
+                <td>PRIMÁRIA 1 PS5 - R$ 119,96 (VAGO)<br>...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="backtop"><a href="#toc">↑ Voltar ao índice</a></div>
+
+        <hr>
+        <p class="small">TSG — documento comunitário. Você pode sugerir melhorias aos Administradores.</p>
+        <p class="backtop"><a href="#topo">↑ Voltar ao topo</a></p>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
