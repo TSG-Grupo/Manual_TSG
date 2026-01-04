@@ -1,287 +1,477 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Manual do grupo TSG (Trade & Share Games) para compra, venda e compartilhamento de jogos digitais PS4/PS5." />
-  <title>Manual TSG — Trade &amp; Share Games</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual TSG — Trade &amp; Share Games</title>
+<style>
+:root{
+  --bg:#0b1020; --text:#e9eefc; --muted:#aab6e6;
+  --line:rgba(233,238,252,.12); --accent:#4fc3ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(79,195,255,.20), transparent 60%),
+              radial-gradient(900px 500px at 100% 0%, rgba(160,88,255,.18), transparent 55%),
+              var(--bg);
+  line-height:1.55;
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1050px; margin:0 auto; padding:28px 18px 60px}
+.header{
+  background: linear-gradient(180deg, rgba(18,26,51,.92), rgba(18,26,51,.65));
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px 22px 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.header h1{margin:0; font-size:28px; letter-spacing:.3px}
+.header .sub{margin-top:6px; color:var(--muted)}
+.toplinks{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px}
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 10px; border-radius:999px;
+  border:1px solid var(--line);
+  background: rgba(11,16,32,.35);
+  color:var(--text);
+  font-size:13px;
+}
+.grid{display:grid; grid-template-columns: 1fr; gap:16px; margin-top:16px}
+@media (min-width: 980px){
+  .grid{grid-template-columns: 310px 1fr;}
+  .toc{position:sticky; top:16px; max-height: calc(100vh - 32px); overflow:auto;}
+}
 
-  <style>
-    :root{
-      --bg:#0b1020; --text:#e9eefc; --muted:#aab6e6;
-      --line:rgba(233,238,252,.12); --accent:#4fc3ff;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(79,195,255,.20), transparent 60%),
-                  radial-gradient(900px 500px at 100% 0%, rgba(160,88,255,.18), transparent 55%),
-                  var(--bg);
-      line-height:1.55;
-    }
-
-    /* Acessibilidade: skip link + foco */
-    .skip-link{
-      position:absolute;
-      left:-999px;
-      top:auto;
-      width:1px;height:1px;
-      overflow:hidden;
-    }
-    .skip-link:focus{
-      left:14px; top:14px;
-      width:auto;height:auto;
-      padding:10px 12px;
-      border-radius:10px;
-      background: rgba(18,26,51,.95);
-      border:1px solid var(--line);
-      color:var(--text);
-      z-index:9999;
-    }
-    :focus-visible{
-      outline:2px solid var(--accent);
-      outline-offset:2px;
-      border-radius:8px;
-    }
-
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    .wrap{max-width:1050px; margin:0 auto; padding:28px 18px 60px}
-
-    header.header{
-      background: linear-gradient(180deg, rgba(18,26,51,.92), rgba(18,26,51,.65));
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:22px 22px 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-    }
-
-    .titles{display:flex; flex-direction:column; gap:2px}
-    .t1{
-      margin:0;
-      font-size:28px;
-      letter-spacing:.3px;
-      line-height:1.15;
-    }
-    .t2{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .toplinks{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px; border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(11,16,32,.35);
-      color:var(--text);
-      font-size:13px;
-    }
-
-    .grid{display:grid; grid-template-columns: 1fr; gap:16px; margin-top:16px}
-    @media (min-width: 980px){
-      .grid{grid-template-columns: 310px 1fr;}
-      .toc{position:sticky; top:16px; max-height: calc(100vh - 32px); overflow:auto;}
-    }
-
-    aside.toc{
-      background: rgba(18,26,51,.55);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px 16px 14px;
-    }
-    .toc h2{margin:0 0 10px; font-size:16px}
-    .toc ul{margin:0; padding-left:16px}
-    .toc li{margin:6px 0; color:var(--muted)}
-    .toc a{color:var(--text)}
-    .toc .lvl3{margin-left:10px; font-size:13px}
-
-    main.content{
-      background: rgba(18,26,51,.55);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px 18px 22px;
-    }
-
-    h2,h3,h4,h5{scroll-margin-top: 14px}
-    h2{margin:28px 0 10px; font-size:22px}
-    h3{margin:18px 0 10px; font-size:18px}
-    h4{margin:14px 0 8px; font-size:16px}
-    p{margin:10px 0}
-    hr{border:0; border-top:1px solid var(--line); margin:18px 0}
-
-    ol.alpha{list-style: lower-alpha; padding-left: 22px; margin:10px 0}
-    ul.bul{padding-left: 22px; margin:10px 0}
-
-    .note{border-left:4px solid rgba(79,195,255,.7); background: rgba(79,195,255,.08); padding:10px 12px; border-radius:10px; margin:12px 0;}
-    .warn{border-left:4px solid rgba(255,190,70,.85); background: rgba(255,190,70,.10); padding:10px 12px; border-radius:10px; margin:12px 0;}
-
-    .small{font-size:12px; color:var(--muted)}
-    .backtop{margin-top:16px}
-    .backtop a{font-size:13px}
-
-    figure.media { margin: 16px 0 22px; }
-    figure.media img {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-width: 920px;
-      margin: 0 auto;
-      border-radius: 12px;
-    }
-    figure.media figcaption {
-      max-width: 920px;
-      margin: 10px auto 0;
-      font-size: 0.95em;
-      opacity: 0.85;
-      text-align: center;
-    }
-    figure.media.compact img { max-width: 720px; }
-
-    /* Tabela responsiva no mobile */
-    .table-wrap{
-      width:100%;
-      overflow:auto;
-      border:1px solid var(--line);
-      border-radius:12px;
-      margin:12px 0 18px;
-    }
-    table.table{
-      width:100%;
-      border-collapse: collapse;
-      min-width: 560px; /* evita esmagar demais no mobile */
-    }
-    .table th,.table td{border-bottom:1px solid var(--line); padding:10px 10px; vertical-align: top;}
-    .table th{text-align:left; background: rgba(11,16,32,.45);}
-
-    @media print{
-      body{background:#fff; color:#000}
-      a{color:#000; text-decoration:underline}
-      header.header, aside.toc, main.content{background:#fff; border:1px solid #ddd; box-shadow:none}
-      .badge, .note, .warn{border:1px solid #ddd; background:#fff}
-    }
-  </style>
+.toc{
+  position: static;
+  top: auto;
+  background: rgba(18,26,51,.55);
+  border:1px solid var(--line);
+  border-radius:16px;
+}
+.toc h2{margin:0 0 10px; font-size:16px}
+.toc ul{margin:0; padding-left:16px}
+.toc li{margin:6px 0; color:var(--muted)}
+.toc a{color:var(--text)}
+.toc .lvl3{margin-left:10px; font-size:13px}
+.content{
+  background: rgba(18,26,51,.55);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px 18px 22px;
+}
+h2,h3,h4,h5{scroll-margin-top: 14px}
+h2{margin:28px 0 10px; font-size:22px}
+h3{margin:18px 0 10px; font-size:18px}
+h4{margin:14px 0 8px; font-size:16px}
+p{margin:10px 0}
+hr{border:0; border-top:1px solid var(--line); margin:18px 0}
+ol.alpha{list-style: lower-alpha; padding-left: 22px; margin:10px 0}
+ul.bul{padding-left: 22px; margin:10px 0}
+.note{border-left:4px solid rgba(79,195,255,.7); background: rgba(79,195,255,.08); padding:10px 12px; border-radius:10px; margin:12px 0;}
+.warn{border-left:4px solid rgba(255,190,70,.85); background: rgba(255,190,70,.10); padding:10px 12px; border-radius:10px; margin:12px 0;}
+.table{width:100%; border-collapse: collapse; margin:12px 0 18px; border:1px solid var(--line); border-radius: 12px; overflow:hidden;}
+.table th,.table td{border-bottom:1px solid var(--line); padding:10px 10px; vertical-align: top;}
+.table th{text-align:left; background: rgba(11,16,32,.45);}
+.small{font-size:12px; color:var(--muted)}
+.backtop{margin-top:16px}
+.backtop a{font-size:13px}
+</style>
 </head>
-
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-
-  <div class="wrap">
-    <header class="header" id="topo">
-      <div class="titles">
-        <h1 class="t1">Manual TSG</h1>
-        <p class="t2">Trade &amp; Share Games</p>
-      </div>
-
-      <nav class="toplinks" aria-label="Links rápidos">
-        <a class="badge" href="#toc">📌 Ir para o índice</a>
-        <a class="badge" href="#8-alertas-boas-praticas-e-problemas-comuns">⚠️ Alertas</a>
-      </nav>
-    </header>
-
-    <div class="grid">
-      <aside class="toc" id="toc" aria-label="Índice do manual">
-        <h2>Índice (links rápidos)</h2>
-        <ul>
-          <li><a href="#1-estrutura-do-grupo">1. ESTRUTURA DO GRUPO</a></li>
-          <li class="lvl3"><a href="#1-1-grupo-geral-tsg">1.1. Grupo Geral — TSG</a></li>
-          <li class="lvl3"><a href="#1-2-grupos-especificos">1.2. Grupos Específicos</a></li>
-          <li><a href="#2-objetivos-do-grupo">2. OBJETIVOS DO GRUPO</a></li>
-          <li><a href="#3-regras-gerais-do-grupo">3. REGRAS GERAIS DO GRUPO</a></li>
-          <li class="lvl3"><a href="#3-1-regras-de-seguranca-e-confiabilidade">3.1. Regras de Segurança e Confiabilidade</a></li>
-          <li class="lvl3"><a href="#3-2-regras-de-conduta-no-grupo-geral">3.2. Regras de Conduta no Grupo Geral</a></li>
-          <li class="lvl3"><a href="#3-3-regras-dos-grupos-especificos">3.3. Regras dos Grupos Específicos</a></li>
-          <li class="lvl3"><a href="#3-4-penalidades">3.4. Penalidades</a></li>
-          <li><a href="#4-tipos-de-grupos-especificos-e-modelos-de-vagas">4. TIPOS DE GRUPOS ESPECÍFICOS E MODELOS DE VAGAS</a></li>
-          <li class="lvl3"><a href="#4-1-tipos-de-vagas-possiveis">4.1. Tipos de vagas possíveis</a></li>
-          <li class="lvl3"><a href="#4-2-modelos-de-grupos-especificos">4.2. Modelos de Grupos Específicos</a></li>
-          <li><a href="#5-ajuste-de-vagas-desmembramento-e-reagrupamento-em-grupos-especificos">5. AJUSTE DE VAGAS, DESMEMBRAMENTO E REAGRUPAMENTO EM GRUPOS ESPECÍFICOS</a></li>
-          <li class="lvl3"><a href="#5-1-fechamento-do-grupo-com-menos-vagas-recalcular-valores">5.1. Fechamento do grupo com menos vagas</a></li>
-          <li class="lvl3"><a href="#5-2-regras-simplificadas-de-redistribuicao">5.2. Regras simplificadas</a></li>
-          <li class="lvl3"><a href="#5-3-desmembramento-e-reagrupamento-mudanca-de-tamanho-do-grupo">5.3. Desmembramento e reagrupamento</a></li>
-          <li class="lvl3"><a href="#5-4-arredondamento-e-ajuste-final-de-centavos">5.4. Arredondamento</a></li>
-          <li><a href="#6-procedimentos-para-oferta-de-jogos-e-montagem-de-grupo-especifico">6. PROCEDIMENTOS</a></li>
-          <li class="lvl3"><a href="#6-1-passo-a-passo-para-oferta-de-venda-no-grupo-geral">6.1. Passo a passo</a></li>
-          <li><a href="#7-passo-a-passo-para-criar-a-conta-psn-comprar-o-jogo-e-configurar-o-acesso">7. PASSO A PASSO PSN</a></li>
-          <li><a href="#8-alertas-boas-praticas-e-problemas-comuns">8. ALERTAS</a></li>
-        </ul>
-        <p class="small" style="margin-top:10px">
-          Dica: compartilhe links diretos usando <b>#</b> no final da URL (ex.: <i>.../index.html#3-2-regras-de-conduta-no-grupo-geral</i>).
-        </p>
-      </aside>
-
-      <main class="content" id="conteudo">
-        <p>GRUPO DE COMPARTILHAMENTO/</p>
-        <p>COMPRA E VENDA DE JOGOS PS4 / PS5</p>
-        <p>Este documento apresenta as diretrizes para o funcionamento de um Grupo Geral Trade &amp; Share Games (TSG) de compartilhamento de jogos digitais nas plataformas PS4 e PS5...</p>
-
-        <h2 id="1-estrutura-do-grupo">1. ESTRUTURA DO GRUPO</h2>
-
-        <h3 id="1-1-grupo-geral-tsg">1.1. Grupo Geral — TSG</h3>
-        <figure class="media">
-          <img src="img/globo.png" alt="Estrutura do TSG" loading="lazy" decoding="async">
-        </figure>
-
-        <ol class="alpha">
-          <li>Reúne todos os membros interessados em participar do sistema de compartilhamento.</li>
-          <li>É o espaço principal para comunicação, formação de Grupos Específicos e organização geral.</li>
-          <li>Os Administradores são responsáveis por aplicar as regras e mediar conflitos quando necessário.</li>
-        </ol>
-
-        <h3 id="1-2-grupos-especificos">1.2. Grupos Específicos</h3>
-        <ol class="alpha">
-          <li>Subgrupos criados para compartilhar um jogo específico...</li>
-          <li>São formados por participantes que dividem os custos e o acesso ao jogo.</li>
-          <li>Cada Grupo Específico terá um Responsável...</li>
-          <li>Caso não haja consenso...</li>
-        </ol>
-
-        <h2 id="3-regras-gerais-do-grupo">3. REGRAS GERAIS DO GRUPO</h2>
-
-        <h3 id="3-1-regras-de-seguranca-e-confiabilidade">3.1. Regras de Segurança e Confiabilidade</h3>
-
-        <!-- ✅ FIGURE fora do OL (corrige HTML inválido) -->
-        <figure class="media compact">
-          <img src="img/resp-cascata.png" alt="Responsabilidade em cascata (estrutura de indicações no TSG)" loading="lazy" decoding="async">
-        </figure>
-
-        <ol class="alpha">
-          <li>Indique apenas pessoas de confiança...</li>
-          <li>É proibido compartilhar, vender ou organizar jogos obtidos fora de meios legais...</li>
-          <li>Nunca solicite a desativação/encerramento de conta pelo site da PSN...</li>
-          <li>É proibido compartilhar com pessoas de fora do TSG quaisquer dados...</li>
-          <li>Use senhas fortes e exclusivas...</li>
-        </ol>
-
-        <!-- ✅ Tabelas com wrapper responsivo -->
-        <h4>Exemplo de anúncio 1:</h4>
-        <div class="table-wrap" role="region" aria-label="Tabela: exemplo de anúncio 1" tabindex="0">
-          <table class="table">
-            <thead><tr><th>5 VAGAS (SEM PROMOÇÃO)</th><th>3 VAGAS (SEM PROMOÇÃO)</th></tr></thead>
-            <tbody>
-              <tr>
-                <td>Jogo: Elden Ring Edicao Padrao<br>Valor: R$ 299,90</td>
-                <td>Jogo: Elden Ring Edicao Padrao<br>Valor: R$ 299,90</td>
-              </tr>
-              <tr>
-                <td>PRIMÁRIA 1 PS4 - R$ 67,48 (VAGO)<br>...</td>
-                <td>PRIMÁRIA 1 PS5 - R$ 119,96 (VAGO)<br>...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="backtop"><a href="#toc">↑ Voltar ao índice</a></div>
-
-        <hr>
-        <p class="small">TSG — documento comunitário. Você pode sugerir melhorias aos Administradores.</p>
-        <p class="backtop"><a href="#topo">↑ Voltar ao topo</a></p>
-      </main>
+<div class="wrap">
+  <div class="header" id="topo">
+    <h1>Manual TSG — Trade &amp; Share Games</h1>
+    <div class="sub">Grupo de compartilhamento / compra e venda de jogos digitais PS4 / PS5 • <span class="small">Atualizado em 04/01/2026</span></div>
+    <div class="toplinks">
+      <span class="badge">🔗 Compartilhe: link + #seção</span>
+      <a class="badge" href="#toc">📌 Ir para o índice</a>
+      <a class="badge" href="#8-alertas-boas-praticas-e-problemas-comuns">⚠️ Alertas</a>
     </div>
   </div>
+  <div class="grid">
+<div class="toc" id="toc">
+<h2>Índice (links rápidos)</h2>
+<ul>
+<li class=""><a href="#1-estrutura-do-grupo">1. ESTRUTURA DO GRUPO</a></li>
+<li class="lvl3"><a href="#1-1-grupo-geral-tsg">1.1. Grupo Geral — TSG</a></li>
+<li class="lvl3"><a href="#1-2-grupos-especificos">1.2. Grupos Específicos</a></li>
+<li class=""><a href="#2-objetivos-do-grupo">2. OBJETIVOS DO GRUPO</a></li>
+<li class=""><a href="#3-regras-gerais-do-grupo">3. REGRAS GERAIS DO GRUPO</a></li>
+<li class="lvl3"><a href="#3-1-regras-de-seguranca-e-confiabilidade">3.1. Regras de Segurança e Confiabilidade</a></li>
+<li class="lvl3"><a href="#3-2-regras-de-conduta-no-grupo-geral">3.2. Regras de Conduta no Grupo Geral</a></li>
+<li class="lvl3"><a href="#3-3-regras-dos-grupos-especificos">3.3. Regras dos Grupos Específicos</a></li>
+<li class="lvl3"><a href="#3-4-penalidades">3.4. Penalidades</a></li>
+<li class=""><a href="#4-tipos-de-grupos-especificos-e-modelos-de-vagas">4. TIPOS DE GRUPOS ESPECÍFICOS E MODELOS DE VAGAS</a></li>
+<li class="lvl3"><a href="#4-1-tipos-de-vagas-possiveis">4.1. Tipos de vagas possíveis</a></li>
+<li class="lvl3"><a href="#4-2-modelos-de-grupos-especificos">4.2. Modelos de Grupos Específicos</a></li>
+<li class=""><a href="#5-ajuste-de-vagas-desmembramento-e-reagrupamento-em-grupos-especificos">5. AJUSTE DE VAGAS, DESMEMBRAMENTO E REAGRUPAMENTO EM GRUPOS ESPECÍFICOS</a></li>
+<li class="lvl3"><a href="#5-1-fechamento-do-grupo-com-menos-vagas-recalcular-valores">5.1. Fechamento do grupo com menos vagas (recalcular valores)</a></li>
+<li class="lvl3"><a href="#5-2-regras-simplificadas-de-redistribuicao">5.2. Regras simplificadas de redistribuição</a></li>
+<li class="lvl3"><a href="#5-3-desmembramento-e-reagrupamento-mudanca-de-tamanho-do-grupo">5.3. Desmembramento e reagrupamento (mudança de tamanho do grupo)</a></li>
+<li class="lvl3"><a href="#5-4-arredondamento-e-ajuste-final-de-centavos">5.4. Arredondamento e ajuste final de centavos</a></li>
+<li class=""><a href="#6-procedimentos-para-oferta-de-jogos-e-montagem-de-grupo-especifico">6. PROCEDIMENTOS PARA OFERTA DE JOGOS E MONTAGEM DE GRUPO ESPECÍFICO</a></li>
+<li class="lvl3"><a href="#6-1-passo-a-passo-para-oferta-de-venda-no-grupo-geral">6.1. Passo a passo para oferta de venda no Grupo Geral</a></li>
+<li class=""><a href="#7-passo-a-passo-para-criar-a-conta-psn-comprar-o-jogo-e-configurar-o-acesso">7. PASSO A PASSO PARA CRIAR A CONTA PSN, COMPRAR O JOGO E CONFIGURAR O ACESSO</a></li>
+<li class="lvl3"><a href="#7-1-criacao-da-conta-psn-exclusiva-para-o-jogo-e-compra-do-jogo">7.1. Criação da conta PSN (exclusiva para o jogo) e compra do jogo</a></li>
+<li class="lvl3"><a href="#7-2-registro-e-guarda-de-dados-recomendacao">7.2. Registro e guarda de dados (recomendação)</a></li>
+<li class="lvl3"><a href="#7-3-procedimentos-em-caso-de-revenda-troca-de-membro-no-grupo-especifico">7.3. Procedimentos em caso de revenda (troca de membro no Grupo Específico)</a></li>
+<li class="lvl3"><a href="#7-4-ativacao-do-jogo-no-console-por-tipo-de-vaga">7.4. Ativação do jogo no console (por tipo de vaga)</a></li>
+<li class="lvl3"><a href="#7-5-desativacao-remocao-de-conta-do-console-procedimento-geral">7.5. Desativação/remoção de conta do console (procedimento geral)</a></li>
+<li class="lvl3"><a href="#7-6-duvidas-e-suporte">7.6. Dúvidas e suporte</a></li>
+<li class=""><a href="#8-alertas-boas-praticas-e-problemas-comuns">8. ALERTAS, BOAS PRÁTICAS E PROBLEMAS COMUNS</a></li>
+<li class="lvl3"><a href="#8-1-regras-de-ouro">8.1. Regras de Ouro</a></li>
+<li class="lvl3"><a href="#8-2-cadeado-no-jogo-o-que-significa-e-como-resolver">8.2. CADEADO no jogo (o que significa e como resolver)</a></li>
+<li class="lvl3"><a href="#8-3-aviso-de-seguranca-identificacao-do-console-obrigatorio">8.3. Aviso de segurança — identificação do console (obrigatório)</a></li>
+<li class="lvl3"><a href="#8-4-regra-final-na-duvida-pare-e-pergunte">8.4. Regra final — na dúvida, pare e pergunte</a></li>
+</ul>
+<p class="small" style="margin-top:10px">Dica: compartilhe links diretos usando <b>#</b> no final da URL (ex.: <i>.../index.html#3-2-regras-de-conduta-no-grupo-geral</i>).</p>
+</div>
+    <div class="content">
+<p>GRUPO DE COMPARTILHAMENTO/</p>
+<p>COMPRA E VENDA DE JOGOS PS4 / PS5</p>
+<p>Este documento apresenta as diretrizes para o funcionamento de um Grupo Geral Trade &amp; Share Games (TSG) de compartilhamento de jogos digitais nas plataformas PS4 e PS5. O objetivo principal é facilitar o acesso aos jogos, reduzir custos e promover uma experiência colaborativa e organizada.</p>
+<p>O Grupo Geral funcionará como a comunidade principal para reunir jogadores interessados em compartilhar jogos. Cada jogo será gerenciado em Grupos Específicos, compostos por participantes que compartilham o acesso a um jogo específico. Tanto o Grupo Geral quanto os Grupos Específicos se organizarão pelo aplicativo WhatsApp.</p>
+<h2 id="1-estrutura-do-grupo">1. ESTRUTURA DO GRUPO</h2>
+<h3 id="1-1-grupo-geral-tsg">1.1. Grupo Geral — TSG</h3>
+<ol class="alpha">
+<li>Reúne todos os membros interessados em participar do sistema de compartilhamento.</li>
+<li>É o espaço principal para comunicação, formação de Grupos Específicos e organização geral.</li>
+<li>Os Administradores são responsáveis por aplicar as regras e mediar conflitos quando necessário.</li>
+</ol>
+<h3 id="1-2-grupos-especificos">1.2. Grupos Específicos</h3>
+<ol class="alpha">
+<li>Subgrupos criados para compartilhar um jogo específico, normalmente nos modelos de 3 ou 5 vagas. Também podem existir grupos com menos participantes, quando combinado previamente.</li>
+<li>São formados por participantes que dividem os custos e o acesso ao jogo.</li>
+<li>Cada Grupo Específico terá um Responsável — o membro cujo e-mail está vinculado à conta PSN criada para o jogo — encarregado de organizar o acesso e manter os dados atualizados. O Responsável será o primeiro ponto de contato para dúvidas, problemas técnicos e questões de conduta. O Responsável não deve, em hipótese alguma, sair do Grupo Específico enquanto ele estiver ativo.</li>
+<li>Caso não haja consenso dentro do Grupo Específico, o caso deve ser encaminhado aos Administradores do Grupo Geral, que tomarão a decisão final conforme as diretrizes do TSG.</li>
+</ol>
+<h2 id="2-objetivos-do-grupo">2. OBJETIVOS DO GRUPO</h2>
+<p>O TSG busca criar uma comunidade de jogadores para facilitar o acesso colaborativo a jogos digitais, promovendo:</p>
+<p>a) Economia colaborativa: divisão de custos para aquisição de jogos, reduzindo o gasto individual.
+b) Acesso ampliado: possibilidade de experimentar uma variedade maior de jogos por meio do compartilhamento seguro de contas.
+c) Interação e colaboração: incentivo a uma convivência harmoniosa, respeitosa e cooperativa entre os participantes.
+d) Gestão segura e organizada: aplicação de diretrizes claras para assegurar a segurança, a transparência e o bom funcionamento do grupo.
+e) Caráter comunitário e sem fins lucrativos: o TSG não tem objetivo de gerar lucro para administradores, moderadores ou para o próprio grupo.</p>
+<div class="note"><p><b>Observação: o TSG é um grupo comunitário e informativo. Não é uma loja, não intermedia pagamentos e não se responsabiliza por acordos feitos fora das regras e diretrizes deste manual.</b></p></div>
+<p>Diretriz prática (sem fins lucrativos): é proibida a cobrança de qualquer taxa de participação, mensalidade, taxa administrativa ou qualquer valor similar para “manter” ou “financiar” o TSG.</p>
+<h2 id="3-regras-gerais-do-grupo">3. REGRAS GERAIS DO GRUPO</h2>
+<h3 id="3-1-regras-de-seguranca-e-confiabilidade">3.1. Regras de Segurança e Confiabilidade</h3>
+<ol class="alpha">
+<li>Indique apenas pessoas de confiança para fazer parte do TSG, pois você será responsabilizado por elas (responsabilidade em cascata).</li>
+<li>É proibido compartilhar, vender ou organizar jogos obtidos fora de meios legais e confiáveis (ex.: contas de origem duvidosa, golpes ou conteúdo pirata).</li>
+<li>Nunca solicite a desativação/encerramento de conta pelo site da PSN ou por qualquer canal externo. Sempre utilize o console para realizar esse procedimento. Na impossibilidade de usar o console, solicite orientação dos Administradores.</li>
+<li>É proibido compartilhar com pessoas de fora do TSG quaisquer dados de contas PSN, prints, conversas ou materiais (incluindo este manual) sobre o funcionamento e a organização do grupo.</li>
+<li>Use senhas fortes e exclusivas nas contas PSN e mantenha os dados protegidos, evitando reutilizar senhas de outros serviços.</li>
+</ol>
+<h3 id="3-2-regras-de-conduta-no-grupo-geral">3.2. Regras de Conduta no Grupo Geral</h3>
+<ol class="alpha">
+<li>O Grupo Geral é destinado exclusivamente a anúncios de compra e venda. Qualquer outro tipo de conteúdo será removido pelos Administradores. Negociações de valores, pagamentos, acertos e combinações devem ocorrer apenas no privado entre os membros envolvidos.</li>
+<li>Respeite os outros participantes; comportamentos ofensivos, ameaças, assédio ou discriminação não serão tolerados.</li>
+<li>É proibido enviar vídeos aleatórios, correntes, spam, propaganda ou mensagens fora do propósito do TSG.</li>
+</ol>
+<h3 id="3-3-regras-dos-grupos-especificos">3.3. Regras dos Grupos Específicos</h3>
+<ol class="alpha">
+<li>Cada jogo compartilhado será organizado em um Grupo Específico no WhatsApp, com participantes previamente definidos.</li>
+<li>Cada Grupo Específico terá um Responsável (Conta Primária) — o membro cujo e-mail está vinculado à conta PSN criada para o jogo — que criará o subgrupo, organizará os acessos e manterá os dados atualizados.</li>
+<li>É proibido obter lucro com a venda de vagas/cotas em Grupos Específicos. O objetivo é apenas a divisão de custos. Não há uma regra fixa para o valor de repasse das cotas, pois trata-se de um grupo de negociação; porém, recomenda-se que a cota seja repassada por, no máximo, 80% do valor pago na aquisição.</li>
+<li>Qualquer alteração nos dados de acesso (e-mail, senha, configurações ou recuperação) deve ser informada imediatamente a todos os membros do Grupo Específico.</li>
+</ol>
+<h3 id="3-4-penalidades">3.4. Penalidades</h3>
+<ol class="alpha">
+<li>O descumprimento das regras, incluindo fraudes, má-fé ou comportamentos inadequados, poderá resultar em medidas como: advertência, suspensão, remoção do grupo e/ou ressarcimento financeiro aos membros prejudicados, quando aplicável.</li>
+<li>Pela regra da responsabilidade em cascata, caso o ressarcimento não possa ser aplicado diretamente ao infrator, ele poderá ser direcionado ao membro que o indicou e, se necessário, seguirá pela cadeia de indicações até o ponto possível de responsabilização.</li>
+<li>Estes e outros casos serão avaliados pelos Administradores, buscando a solução mais justa e a manutenção da harmonia e segurança do grupo.</li>
+</ol>
+<h2 id="4-tipos-de-grupos-especificos-e-modelos-de-vagas">4. TIPOS DE GRUPOS ESPECÍFICOS E MODELOS DE VAGAS</h2>
+<p>Os Grupos Específicos são formados com base no número de participantes que compartilharão o acesso a um jogo, ocupando as vagas ofertadas no Grupo Geral.</p>
+<h3 id="4-1-tipos-de-vagas-possiveis">4.1. Tipos de vagas possíveis</h3>
+<h4>Vaga PRIMÁRIA</h4>
+<ol class="alpha">
+<li>Ativada como principal no console PS4 ou PS5.</li>
+<li>Permite que todos os usuários daquele console acessem o conteúdo.</li>
+<li>Possibilita jogar na conta pessoal do próprio usuário e, portanto, obter os troféus nessa conta.</li>
+</ol>
+<h4>Vaga SECUNDÁRIA</h4>
+<ol class="alpha">
+<li>Não pode ser ativada como principal.</li>
+<li>O conteúdo só pode ser acessado por meio da conta compartilhada.</li>
+<li>Não permite jogar na conta pessoal do usuário; portanto, os troféus do jogo não serão registrados na conta principal do usuário.</li>
+</ol>
+<h3 id="4-2-modelos-de-grupos-especificos">4.2. Modelos de Grupos Específicos</h3>
+<p>Para definir o número de participantes em cada modelo, foi considerado o número máximo de acessos permitido pela PSN, conforme o tipo de jogo (PS4, Cross-Gen ou exclusivo de PS5).</p>
+<h4 id="4-2-1-grupos-com-ate-5-jogadores">4.2.1. Grupos com até 5 jogadores</h4>
+<p>Aplicável para: jogos de PS4 ou Cross-Gen (PS4 e PS5). Não aplicável para: jogos exclusivos de PS5.</p>
+<p>Número e tipos de vagas</p>
+<p>2 vagas PRIMÁRIAS (PS4)</p>
+<p>2 vagas PRIMÁRIAS (PS5)</p>
+<p>1 vaga SECUNDÁRIA (PS4/PS5)</p>
+<p>Divisão de valores (referência do TSG)</p>
+<h4>Vaga PRIMÁRIA: 22,5% do valor do jogo</h4>
+<h4>Vaga SECUNDÁRIA: 10% do valor do jogo</h4>
+<p>Exemplo numérico (jogo de R$ 300,00)</p>
+<h4>Vaga PRIMÁRIA 1 – PS4: 22,5% = R$ 67,50</h4>
+<h4>Vaga PRIMÁRIA 2 – PS4: 22,5% = R$ 67,50</h4>
+<h4>Vaga PRIMÁRIA 1 – PS5: 22,5% = R$ 67,50</h4>
+<h4>Vaga PRIMÁRIA 2 – PS5: 22,5% = R$ 67,50</h4>
+<h4>Vaga SECUNDÁRIA – PS4/PS5: 10% = R$ 30,00</h4>
+<h4 id="4-2-2-grupos-com-ate-3-jogadores">4.2.2. Grupos com até 3 jogadores</h4>
+<p>Compatível com: todos os jogos, incluindo exclusivos de PS5. Jogos exclusivos de PS5 devem obrigatoriamente utilizar este modelo e, nesse caso, a vaga SECUNDÁRIA, obviamente, deve ser para PS5.</p>
+<p>Número e tipos de vagas</p>
+<p>2 vagas PRIMÁRIAS</p>
+<p>1 vaga SECUNDÁRIA</p>
+<p>Divisão de valores (referência do TSG)</p>
+<h4>Vaga PRIMÁRIA: 40% do valor do jogo</h4>
+<h4>Vaga SECUNDÁRIA: 20% do valor do jogo</h4>
+<p>Exemplo numérico (jogo de R$ 300,00)</p>
+<h4>Vaga PRIMÁRIA 1 – PS5: 40% = R$ 120,00</h4>
+<h4>Vaga PRIMÁRIA 2 – PS5: 40% = R$ 120,00</h4>
+<h4>Vaga SECUNDÁRIA – PS5: 20% = R$ 60,00</h4>
+<h4 id="4-2-3-ajustes-de-valor-vaga-secundaria-e-arredondamento">4.2.3. Ajustes de valor (vaga SECUNDÁRIA) e arredondamento</h4>
+<ol class="alpha">
+<li>A fim de tornar as vagas SECUNDÁRIAS mais atrativas, em comum acordo entre os participantes do Grupo Específico, o valor da cota SECUNDÁRIA pode ser reduzido.</li>
+<li>Qualquer redução aplicada à cota SECUNDÁRIA será absorvida pelas vagas PRIMÁRIAS, dividindo-se a diferença entre elas (salvo acordo diferente, comunicado claramente no grupo antes do fechamento).</li>
+<li>Quando a divisão resultar em valores com centavos “quebrados” (arredondamento), o Responsável deverá ajustar os valores para que a soma final seja exatamente igual ao valor total do jogo.</li>
+<li>Por padrão, eventuais diferenças de arredondamento (para mais ou para menos) devem ser ajustadas nas vagas PRIMÁRIAS, de forma transparente e informada no Grupo Específico.</li>
+</ol>
+<h2 id="5-ajuste-de-vagas-desmembramento-e-reagrupamento-em-grupos-especificos">5. AJUSTE DE VAGAS, DESMEMBRAMENTO E REAGRUPAMENTO EM GRUPOS ESPECÍFICOS</h2>
+<p>Quando, por comum acordo, os participantes decidirem fechar um Grupo Específico sem preencher todas as vagas possíveis, os valores deverão ser recalculados e redistribuídos. Como regra geral, mantém-se o percentual estipulado para a vaga SECUNDÁRIA (quando houver), e o valor restante é redistribuído entre as vagas PRIMÁRIAS em partes iguais.</p>
+<h3 id="5-1-fechamento-do-grupo-com-menos-vagas-recalcular-valores">5.1. Fechamento do grupo com menos vagas (recalcular valores)</h3>
+<p>Exemplo numérico 2 (jogo de R$ 300,00)</p>
+<p>Grupo que poderia ter 5 vagas, mas foi fechado com 3 vagas PRIMÁRIAS e 1 vaga SECUNDÁRIA (mantendo a SECUNDÁRIA em 10%):</p>
+<h4>Vaga PRIMÁRIA 1 – PS4: 30% = R$ 90,00</h4>
+<h4>Vaga PRIMÁRIA 2 – PS4: 30% = R$ 90,00</h4>
+<h4>Vaga PRIMÁRIA 1 – PS5: 30% = R$ 90,00</h4>
+<h4>Vaga SECUNDÁRIA – PS4/PS5: 10% = R$ 30,00</h4>
+<p>Exemplo numérico 3 (jogo de R$ 300,00)</p>
+<p>Se a vaga SECUNDÁRIA não for preenchida, o valor é dividido igualmente entre as vagas PRIMÁRIAS:</p>
+<h4>Vaga PRIMÁRIA 1 – PS4: 33,33% = R$ 100,00</h4>
+<h4>Vaga PRIMÁRIA 2 – PS4: 33,33% = R$ 100,00</h4>
+<h4>Vaga PRIMÁRIA 1 – PS5: 33,33% = R$ 100,00</h4>
+<h3 id="5-2-regras-simplificadas-de-redistribuicao">5.2. Regras simplificadas de redistribuição</h3>
+<ol class="alpha">
+<li>Se a vaga SECUNDÁRIA não for preenchida, as vagas PRIMÁRIAS dividem o custo igualmente.</li>
+<li>Se uma (ou mais) vaga PRIMÁRIA não for preenchida, a vaga SECUNDÁRIA (quando existir) mantém seu percentual estipulado:</li>
+</ol>
+<p>10% para jogos PS4/Cross-Gen</p>
+<p>20% para jogos exclusivos de PS5</p>
+<p>O valor restante é dividido igualmente entre as vagas PRIMÁRIAS que permanecerem.</p>
+<h3 id="5-3-desmembramento-e-reagrupamento-mudanca-de-tamanho-do-grupo">5.3. Desmembramento e reagrupamento (mudança de tamanho do grupo)</h3>
+<ol class="alpha">
+<li>Nos casos em que o grupo for fechado sem ocupar todas as vagas possíveis, ele pode ser desmembrado (tornar-se um grupo menor), desde que todos os membros concordem. Caso não haja concordância, os valores e regras originais permanecem.</li>
+<li>O mesmo raciocínio se aplica ao reagrupamento: se uma vaga remanescente for ocupada posteriormente, o grupo pode voltar a um modelo maior (por exemplo, aproximando-se novamente do modelo de 5 ou de 3 participantes).</li>
+<li>Em caso de reagrupamento, haverá reajuste dos valores pagos, com reembolsos ou pagamentos complementares, conforme os critérios de divisão de valores definidos neste manual.</li>
+<li>Todo reajuste deve ser informado de forma clara pelo Responsável, com os valores anteriores, os novos valores e o saldo (quem recebe/quem paga).</li>
+</ol>
+<h3 id="5-4-arredondamento-e-ajuste-final-de-centavos">5.4. Arredondamento e ajuste final de centavos</h3>
+<ol class="alpha">
+<li>Sempre que a redistribuição gerar valores com centavos “quebrados”, o Responsável deverá aplicar arredondamento de forma que a soma total das cotas seja exatamente igual ao valor total do jogo.</li>
+<li>Por padrão, diferenças de arredondamento (para mais ou para menos) devem ser ajustadas nas vagas PRIMÁRIAS, dividindo a diferença entre elas (salvo acordo diferente, informado no grupo).</li>
+<li>O critério de arredondamento utilizado deve ser transparente e comunicado no Grupo Específico, junto com o demonstrativo final dos valores.</li>
+</ol>
+<h2 id="6-procedimentos-para-oferta-de-jogos-e-montagem-de-grupo-especifico">6. PROCEDIMENTOS PARA OFERTA DE JOGOS E MONTAGEM DE GRUPO ESPECÍFICO</h2>
+<h3 id="6-1-passo-a-passo-para-oferta-de-venda-no-grupo-geral">6.1. Passo a passo para oferta de venda no Grupo Geral</h3>
+<p>Após definir o jogo que será negociado, o próximo passo é oferecer as vagas no Grupo Geral e iniciar a formação do Grupo Específico. Isso deve ser feito por meio de um anúncio de venda, seguindo os critérios abaixo.</p>
+<p>A) Informações sobre o jogo</p>
+<ol class="alpha">
+<li>Nome do jogo: informe o título do jogo.</li>
+<li>DLC (se houver): informe se há DLC disponível e, se necessário, os respectivos valores.</li>
+<li>Valor do jogo: informe o valor original do jogo.</li>
+<li>Promoção (se aplicável): informe o valor promocional e a data de término da promoção.</li>
+<li>Status do grupo: indique o status como ABERTO (enquanto houver vagas disponíveis) ou FECHADO (quando todas as vagas estiverem preenchidas).</li>
+</ol>
+<p>B) Tipo de grupo e cálculo de valores</p>
+<ol class="alpha">
+<li>Defina o modelo do grupo (até 5 ou até 3 participantes) e os tipos de vagas ofertadas (PRIMÁRIAS e/ou SECUNDÁRIA).</li>
+<li>Calcule a divisão dos valores conforme os critérios definidos neste manual.</li>
+<li>Apresente claramente a divisão, por exemplo:</li>
+</ol>
+<p>Vagas PRIMÁRIAS: PS4 e/ou PS5, com o valor de cada cota</p>
+<h4>Vaga SECUNDÁRIA: PS4/PS5 (ou PS5, quando aplicável), com o valor da cota</h4>
+<h4>Exemplo de anúncio 1:</h4>
+<table class="table">
+<thead><tr><th>5 VAGAS (SEM PROMOÇÃO)</th><th>3 VAGAS (SEM PROMOÇÃO)</th></tr></thead>
+<tbody>
+<tr><td>Jogo: Elden Ring Edicao Padrao<br>Valor: R$ 299,90</td><td>Jogo: Elden Ring Edicao Padrao<br>Valor: R$ 299,90</td></tr>
+<tr><td>PRIMÁRIA 1 PS4 - R$ 67,48 (VAGO)<br>PRIMÁRIA 2 PS4 - R$ 67,48 (VAGO)<br>PRIMÁRIA 1 PS5 - R$ 67,48 (VAGO)<br>PRIMÁRIA 2 PS5 - R$ 67,48 (VAGO)<br>SECUNDÁRIA PS4/PS5 - R$ 29,99 (VAGO)<br>STATUS: ABERTO</td><td>PRIMÁRIA 1 PS5 - R$ 119,96 (VAGO)<br>PRIMÁRIA 2 PS5 - R$ 119,96 (VAGO)<br>SECUNDÁRIA PS5 - R$ 59,98 (VAGO)<br>STATUS: ABERTO</td></tr>
+</tbody></table>
+<div class="backtop"><a href="#toc">↑ Voltar ao índice</a></div>
+<h4>Exemplo de anúncio 2</h4>
+<table class="table">
+<thead><tr><th>5 VAGAS (COM PROMOÇÃO)</th><th>3 VAGAS (COM PROMOÇÃO)</th></tr></thead>
+<tbody>
+<tr><td>Jogo: Lies of P – Deluxe Edition <br>R$ 349,99 por R$ 209,94 até 18/01/2025</td><td>Jogo: Lies of P – Deluxe Edition <br>R$ 349,99 por R$ 209,94 até 18/01/2025</td></tr>
+<tr><td>PRIMÁRIA 1 PS4 - R$ 47,24 (VAGO)<br>PRIMÁRIA 2 PS4 - R$ 47,24 (VAGO)<br>PRIMÁRIA 1 PS5 - R$ 47,24 (VAGO)<br>PRIMÁRIA 2 PS5 - R$ 47,24 (VAGO)<br>SECUNDÁRIA PS4/PS5 - R$ 20,99 (VAGO)<br>STATUS: ABERTO</td><td>PRIMÁRIA 1 PS5 - R$ 83,98 (VAGO)<br>PRIMÁRIA 2 PS5 - R$ 83,98 (VAGO)<br>SECUNDÁRIA PS5 - R$ 41,99 (VAGO)<br>STATUS: ABERTO</td></tr>
+</tbody></table>
+<div class="backtop"><a href="#toc">↑ Voltar ao índice</a></div>
+<p>C) Pagamentos</p>
+<ol class="alpha">
+<li>As tratativas de pagamento devem ocorrer no privado com os interessados nas vagas.</li>
+<li>As partes devem definir, em comum acordo, a forma de pagamento (PIX, transferência bancária etc.).</li>
+<li>O TSG não intermedia pagamentos.</li>
+</ol>
+<p>D) Atualização do anúncio e mudança de status</p>
+<ol class="alpha">
+<li>À medida que as vagas forem sendo preenchidas, atualize o anúncio com o nome dos participantes, para manter a transparência.</li>
+<li>Quando todas as vagas forem preenchidas, altere o status para FECHADO.</li>
+<li>Após fechar, publique no Grupo Geral uma mensagem informando que o grupo foi fechado, evitando novas solicitações e confusões.</li>
+</ol>
+<p>E) Criação do Grupo Específico no WhatsApp</p>
+<ol class="alpha">
+<li>No WhatsApp, crie um grupo específico para o jogo negociado, incluindo todos os participantes e torne TODOS os membros administradores.</li>
+<li>Nome do grupo: deve conter o nome do jogo (ou sigla) + TSG, para facilitar a identificação rápida e a localização do grupo no WhatsApp, especialmente quando o Responsável administra vários Grupos Específicos ao mesmo tempo.</li>
+</ol>
+<p>Exemplo: Elden Ring – Jogo Base – TSG</p>
+<ol class="alpha">
+<li>Descrição do grupo: deve incluir os valores de cada vaga e os nomes dos participantes, para manter transparência. Sempre que houver revenda, a descrição deve ser atualizada.</li>
+<li>Responsabilidade do criador (Responsável): o criador do grupo é o Responsável (Conta Primária), cujo e-mail está vinculado à conta PSN do jogo. Ele deve manter seu contato visível na descrição e não deve sair do grupo enquanto ele estiver ativo (podendo também permanecer como administrador).</li>
+<li>Controle pessoal de acessos (recomendação): recomenda-se que o Responsável mantenha anotado, em um arquivo pessoal e privado (por exemplo, em um bloco de notas), o login e a senha de cada conta TSG sob sua responsabilidade. Isso ajuda a evitar perda de acesso e problemas futuros em casos de troca de senha, recuperação de conta ou suporte aos membros.</li>
+</ol>
+<p>Exemplo de descrição do Grupo Específico (WhatsApp)</p>
+<p>Nome do grupo: Elden Ring – Jogo Base – TSG</p>
+<p>Descrição do grupo:</p>
+<p>Valor do jogo: R$ 300,00</p>
+<p>PRIMÁRIAS PS4/PS5: R$ 67,50</p>
+<p>SECUNDÁRIA PS4/PS5: R$ 30,00</p>
+<p>PRIMÁRIA 1 PS4 = Tiago</p>
+<p>PRIMÁRIA 2 PS4 = Juliano</p>
+<p>PRIMÁRIA 1 PS5 = Tamires</p>
+<p>PRIMÁRIA 2 PS5 = Caio</p>
+<p>SECUNDÁRIA PS4/PS5 = Junior</p>
+<p>Login: responsavel+jogocomprado-tsg@gmail.com</p>
+<p>Senha: abc1234</p>
+<div class="warn"><p><b>Importante:
+Sempre que houver revenda, siga o procedimento de adicionar o novo membro, torná-lo administrador e remover o anterior. Após a saída de qualquer membro, é aconselhável que altere a senha do jogo para manter a segurança.</b></p></div>
+<h2 id="7-passo-a-passo-para-criar-a-conta-psn-comprar-o-jogo-e-configurar-o-acesso">7. PASSO A PASSO PARA CRIAR A CONTA PSN, COMPRAR O JOGO E CONFIGURAR O ACESSO</h2>
+<div class="note"><p><b>Observação: nomes e caminhos de menus podem variar ligeiramente conforme o idioma do console e atualizações do sistema, mas as funções e o procedimento são equivalentes.</b></p></div>
+<h3 id="7-1-criacao-da-conta-psn-exclusiva-para-o-jogo-e-compra-do-jogo">7.1. Criação da conta PSN (exclusiva para o jogo) e compra do jogo</h3>
+<p>Após definidas todas as vagas do jogo anunciado, é hora de criar uma conta PSN exclusiva para esse jogo. Para padronização e organização:</p>
+<ol class="alpha">
+<li>Utilize seu console e seu e-mail pessoal do Gmail para criar a conta PSN do jogo.</li>
+<li>No console, crie um novo usuário (não é necessário criar um e-mail previamente).</li>
+<li>Para o e-mail de login da conta PSN, use o padrão do Gmail com “+”:</li>
+</ol>
+<p>Formato: seu.usuario+nomedojogo-tsg@gmail.com</p>
+<p>Exemplo: usuario.principal@gmail.com + “Lies of P” → usuario.principal+liesofp-tsg@gmail.com</p>
+<ol class="alpha">
+<li>Vantagens: você recebe notificações no seu e-mail principal, reduz risco de inatividade, facilita recuperação de conta e evita criar/gerenciar vários e-mails.</li>
+<li>Após criar a conta PSN, faça login nela, compre o jogo e inicie o download.</li>
+</ol>
+<h3 id="7-2-registro-e-guarda-de-dados-recomendacao">7.2. Registro e guarda de dados (recomendação)</h3>
+<ol class="alpha">
+<li>Recomenda-se que o responsável pela conta mantenha anotado, em um arquivo pessoal e privado (ex.: bloco de notas), o login e a senha de cada conta TSG sob sua responsabilidade.</li>
+<li>Isso evita perda de acesso e ajuda em casos de troca de senha, recuperação da conta e suporte aos membros do Grupo Específico.</li>
+</ol>
+<h3 id="7-3-procedimentos-em-caso-de-revenda-troca-de-membro-no-grupo-especifico">7.3. Procedimentos em caso de revenda (troca de membro no Grupo Específico)</h3>
+<ol class="alpha">
+<li>Entrada de novo membro: antes de adicionar um novo membro ao Grupo Específico, confirme o pagamento (tratativa no privado).</li>
+<li>Saída do membro anterior: remova o membro que está saindo do grupo; ele não deverá mais ter acesso ao jogo.</li>
+<li>Troca de senha: após a saída de qualquer membro, altere a senha da conta PSN do jogo para garantir que apenas os membros ativos tenham acesso.</li>
+<li>Atualização da descrição do grupo: atualize a descrição do Grupo Específico com o nome do novo membro e os valores, mantendo transparência.</li>
+</ol>
+<h3 id="7-4-ativacao-do-jogo-no-console-por-tipo-de-vaga">7.4. Ativação do jogo no console (por tipo de vaga)</h3>
+<p>Crie um novo usuário no console com o login e a senha fornecidos pelo Grupo Específico.</p>
+<p>Acesse esse usuário e vá até Configurações.</p>
+<p>Siga o procedimento conforme o tipo de vaga (PRIMÁRIA ou SECUNDÁRIA).</p>
+<h4 id="7-4-1-playstation-4-ps4">7.4.1. PlayStation 4 (PS4)</h4>
+<p>🔹 Vaga PRIMÁRIA</p>
+<p>Configurações → Gerenciamento da conta → Ativar como principal</p>
+<p>Depois, saia desse usuário e volte para seu usuário principal. O jogo ficará disponível normalmente.</p>
+<p>🔹 Vaga SECUNDÁRIA</p>
+<p>Configurações → Gerenciamento da conta → Ativar como principal → Desativar</p>
+<div class="warn"><p><b>Importante: confirme que “Ativar como principal” está desativado (em alguns casos pode ativar automaticamente).</b></p></div>
+<p>Em vaga secundária, o jogo deve ser jogado somente pela conta do jogo. Não deve JAMAIS ser jogado pela conta pessoal de qualquer usuário do console.</p>
+<h4 id="7-4-2-playstation-5-ps5">7.4.2. PlayStation 5 (PS5)</h4>
+<p>🔹 Vaga PRIMÁRIA</p>
+<p>Usuários e Contas → Outros → Compartilhamento de Console e Jogo Offline → Habilitar</p>
+<p>Depois, saia desse usuário e volte para seu usuário principal. O jogo ficará disponível normalmente.</p>
+<p>🔹 Vaga SECUNDÁRIA</p>
+<p>Usuários e Contas → Outros → Compartilhamento de Console e Jogo Offline → Desabilitar</p>
+<div class="warn"><p><b>Importante: em vaga secundária, é obrigatório que essa opção esteja desabilitada.</b></p></div>
+<p>Em vaga secundária, o jogo deve ser jogado somente pela conta do jogo. Não deve JAMAIS ser jogado pela conta pessoal de qualquer usuário do console.</p>
+<h3 id="7-5-desativacao-remocao-de-conta-do-console-procedimento-geral">7.5. Desativação/remoção de conta do console (procedimento geral)</h3>
+<div class="warn"><p><b>⚠️⚠️⚠️ IMPORTANTE: nunca desative/desabilite contas pelo site da PSN. Use somente o console para esse procedimento.</b></p></div>
+<p>Situações comuns onde será necessário o procedimento de desativação/desabilitação da conta do seu console: revenda de vaga, troca de console, reorganização de usuários, entre outras.</p>
+<h4 id="7-5-1-playstation-4-ps4-vaga-primaria-ou-secundaria">7.5.1. PlayStation 4 (PS4) — vaga PRIMÁRIA ou SECUNDÁRIA</h4>
+<ol class="alpha">
+<li>Pelo console (sempre), faça login na conta do jogo.</li>
+<li>Configurações → Gerenciamento da conta → Ativar como principal → Desativar</li>
+<li>Exclua o jogo do console:</li>
+</ol>
+<p>Configurações → Armazenamento → Armazenamento do sistema → Aplicativos → Excluir jogo</p>
+<ol class="alpha">
+<li>Exclua o usuário do console:</li>
+</ol>
+<p>Configurações de login → Gerenciamento de usuários → Excluir usuário</p>
+<h4 id="7-5-2-playstation-5-ps5-vaga-primaria-ou-secundaria">7.5.2. PlayStation 5 (PS5) — vaga PRIMÁRIA ou SECUNDÁRIA</h4>
+<ol class="alpha">
+<li>Pelo console (sempre), faça login na conta do jogo.</li>
+<li>Usuários e Contas → Outros → Compartilhamento de Console e Jogo Offline → Desabilitar</li>
+<li>Exclua o jogo do console:</li>
+</ol>
+<p>Configurações → Armazenamento → Jogos e aplicativos → Excluir jogo</p>
+<ol class="alpha">
+<li>Exclua o usuário do console:</li>
+</ol>
+<p>Configurações → Usuários e Contas → Outros → Excluir usuário</p>
+<h3 id="7-6-duvidas-e-suporte">7.6. Dúvidas e suporte</h3>
+<ol class="alpha">
+<li>Em caso de dúvida, consulte os Administradores antes de agir.</li>
+<li>Em procedimentos sensíveis (criação de conta, recuperação, desativação, revenda e troca de senha), peça orientação aos Administradores para evitar erros, bloqueios e prejuízos ao grupo.</li>
+</ol>
+<h2 id="8-alertas-boas-praticas-e-problemas-comuns">8. ALERTAS, BOAS PRÁTICAS E PROBLEMAS COMUNS</h2>
+<h3 id="8-1-regras-de-ouro">8.1. Regras de Ouro</h3>
+<ol class="alpha">
+<li>Antes de repassar sua vaga/conta para outra pessoa: desative/desabilite a conta no seu console e exclua o usuário do console (conforme o Tópico 7.5).</li>
+<li>Vai anunciar um jogo para ficar com a VAGA SECUNDÁRIA? Não crie a conta do jogo na PSN; aguarde pelo menos 1 vaga PRIMÁRIA ser definida primeiro. A conta PSN do jogo deve ser criada pelo Responsável (Conta Primária), cujo e-mail ficará vinculado à conta do jogo.</li>
+<li>Adquiriu uma vaga SECUNDÁRIA e adicionou no console? Verifique se o sistema não ativou/habilitou automaticamente.</li>
+<li>Se a configuração estiver incorreta, corrija imediatamente (SECUNDÁRIA deve permanecer desativada; PRIMÁRIA deve estar habilitada conforme o Tópico 7.4).</li>
+<li>Nunca confirme opções “no automático”. Leia e confira antes de clicar em SIM/OK/Confirmar (vale para PRIMÁRIA e SECUNDÁRIA).</li>
+</ol>
+<h3 id="8-2-cadeado-no-jogo-o-que-significa-e-como-resolver">8.2. CADEADO no jogo (o que significa e como resolver)</h3>
+<ol class="alpha">
+<li>O ícone de cadeado geralmente indica que a licença do jogo não está válida naquele console naquele momento.</li>
+<li>As causas mais comuns são:</li>
+</ol>
+<p>A conta não está configurada como principal (PS4) ou o “Compartilhamento de Console e Jogo Offline” está desabilitado (PS5);</p>
+<p>Houve alteração recente na conta (troca de senha, desativação feita por engano, troca de usuário).</p>
+<ol class="alpha">
+<li>Mas por que isso acontece?</li>
+</ol>
+<p>A gente usa 2 vagas PRIMÁRIAS por plataforma.</p>
+<p>É impossível manter as duas ativadas ao mesmo tempo: se uma ativa, a outra vai cair.</p>
+<p>A PSN/Sony às vezes demora para “perceber”, mas o cadeado vai aparecer em algum momento (na hora ou dias depois). Na verdade, contamos com isso para o compartilhamento ser viável economicamente.</p>
+<ol class="alpha">
+<li>Procedimento recomendado:</li>
+</ol>
+<p>Refaça a configuração correta do tipo da sua vaga (ver Tópico 7.4);</p>
+<p>Se não resolver, comunique no Grupo Específico e acione o Responsável;</p>
+<p>Persistindo, leve o caso aos Administradores.</p>
+<h3 id="8-3-aviso-de-seguranca-identificacao-do-console-obrigatorio">8.3. Aviso de segurança — identificação do console (obrigatório)</h3>
+<ol class="alpha">
+<li>Para aumentar a segurança e o controle de acessos, é obrigatório definir um nome para o console. Isso permite identificar quais consoles acessaram uma conta TSG, ajudando a prevenir acessos indevidos.</li>
+<li>O nome pode ser o nome pelo qual você é conhecido no grupo (apelido/nickname). Não é necessário usar nome completo.</li>
+<li>Como definir o nome do console (PS5):</li>
+</ol>
+<p>Configurações → Sistema → Software do Sistema → Informações do Console → Nome</p>
+<ol class="alpha">
+<li>Acesso indevido a uma conta sem direito resultará em penalidades, incluindo banimento, conforme as regras do grupo.</li>
+</ol>
+<h3 id="8-4-regra-final-na-duvida-pare-e-pergunte">8.4. Regra final — na dúvida, pare e pergunte</h3>
+<ol class="alpha">
+<li>Se você não tiver certeza do que está fazendo, não execute o procedimento.</li>
+<li>Na dúvida, peça orientação primeiro ao Responsável do Grupo Específico e, se necessário, aos Administradores.</li>
+<li>A maioria dos problemas do TSG acontece por pressa ou por confirmar opções sem checar. Segurança e organização vêm em primeiro lugar.</li>
+</ol>
+      <hr>
+      <p class="small">TSG — documento comunitário. Você pode sugerir melhorias aos Administradores.</p>
+      <p class="backtop"><a href="#topo">↑ Voltar ao topo</a></p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
