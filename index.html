@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
@@ -9,13 +8,15 @@
 <meta content="no-store, max-age=0, must-revalidate" http-equiv="Cache-Control"/>
 <meta content="no-cache" http-equiv="Pragma"/>
 <meta content="0" http-equiv="Expires"/>
-<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=XlOLtAj-pU-RQfu_rFPB5EBo-XCpmWnrvBMQfFnzQuBz1yGZ4fSpdkZoVUxbKzLTzvCWtCeTe4Khzl3JLKB0NwdcqSGEkwOxYTkHO3HG38QLqh0jCXn22WKny2F-kntDaLkNLUXJ2bHRzdmz-Qy5-vSWUsmAer0qh2wfkOaW6Bj3M59D1O6HglufG7eciwwwDL1r00HFqtX0zJ-HlNGmxj2jnRPFI9c2zqHEnpVWoMfn8ADJzJF5bFQGKlVF5YDPSL4Xk7rj5LMx4xDoxkji4mpejO1zcL35CTTZ-8d_qeCyHplWgc3mRuhs-ZTX1UfjKMcfkxQ2DV5mirPgkbk1ZesePsVBoGry3BxTyx_5z7s" charset="UTF-8"></script><style>
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=oaR-Ju5SkFHUNAOwmE8--NVYnhlkBcKwSVY-Br0dOTemB5Odqm1Pjq5EuV339T42exixv51IEfCPCdu76dEI1wn_Oyrm58QsrLNZoXkPQy0ajziFvWQ0sT5_8BWJ3d1Wx-6FEW3ezVUWhzs7zLoqKFeT27zQqxV-tb7soYYH_qPtwhEgHb0OHbEYir-lY-W5qZMHSCiyfX-sK1VTySrBeeGYv9JxofAQ1TkmQOAKBXFZyOLXbkkUc2Usg1kkAolAC8vby9yB4TfG7q9B-S_uHuYbSQYOF_00s2_qQyq8B5gfOR5L4a4lyOzJpF_hq-i0nSuDj29g0Y5XJgZ-0L7cFg" charset="UTF-8"></script><style>
     :root {
       --maxw: 980px;
       --border: rgba(0,0,0,.10);
       --muted: rgba(0,0,0,.65);
       --muted2: rgba(0,0,0,.5);
       --bg: #ffffff;
+      --line: var(--border);
+      --card: #ffffff;
       --bg2: rgba(0,0,0,.03);
       --callout-note: rgba(0,0,0,.04);
       --callout-warn: rgba(255, 183, 0, .16);
@@ -285,6 +286,19 @@
             max-width: 200px;
           }
         }
+
+
+    /* ===== Ajustes de compatibilidade para celular ===== */
+    body { min-height: 100vh; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    img { max-width: 100%; }
+    .table-wrap { -webkit-overflow-scrolling: touch; }
+    @media (max-width: 640px){
+      main { padding-left: .65rem; padding-right: .65rem; }
+      .top-nav { font-size: .82rem; gap: .4rem; }
+      table { min-width: 480px; }
+      th, td { padding: .52rem .55rem; }
+      .brand-logo { height: 78px; max-width: 150px; }
+    }
 
     html { scroll-padding-top: var(--scroll-offset); }</style>
 </head>
@@ -690,15 +704,15 @@
 <li>No console, crie um novo usuário (não é necessário criar um e-mail previamente).</li>
 <li>Para o e-mail de login da conta PSN, use o padrão do Gmail com “+”:</li>
 </ol>
-<p>Formato: seu.usuario+nomedojogo@gmail.com</p>
-<p>Exemplo: supondo que o email pessoal do usuário seja helliott_666@gmail.com, e o game a ser adquirido o Lies of P, a conta a ser criada deve ser: helliott_666+liesofp@gmail.com, ou seja, tudo que vier antes do "@","+", "nome do jogo(ou iniciais)", "@gmail.com"</p>
+<p>Formato: seu.usuario+nomedojogo-tsg@gmail.com</p>
+<p>Exemplo: supondo que o email pessoal do usuário seja helliott_666@gmail.com, e o game a ser adquirido o Lies of P, a conta a ser criada deve ser: helliott_666+liesofp-tsg@gmail.com, ou seja, tudo que vier antes do "@","+", "nome do jogo(ou iniciais)", "-tsg", "@gmail.com"</p>
 <ol class="alpha" start="4">
 <li>Vantagens: você recebe notificações no seu e-mail principal, reduz risco de inatividade, facilita recuperação de conta e evita criar/gerenciar vários e-mails.</li>
 <li>Após criar a conta PSN, faça login nela, compre o jogo e inicie o download.</li>
 </ol>
 <h3 id="cap7-2-registro-e-guarda-de-dados-recomendacao">7.2. Registro e guarda de dados (recomendação)</h3>
 <ol class="alpha">
-<li>Recomenda-se que o responsável pela conta mantenha anotado, em um arquivo pessoal e privado (ex.: bloco de notas), o login e a senha de cada conta sob sua responsabilidade.</li>
+<li>Recomenda-se que o responsável pela conta mantenha anotado, em um arquivo pessoal e privado (ex.: bloco de notas), o login e a senha de cada conta TSG sob sua responsabilidade.</li>
 <li>Isso evita perda de acesso e ajuda em casos de troca de senha, recuperação da conta e suporte aos membros do Grupo Específico.</li>
 </ol>
 <h3 id="cap7-3-procedimentos-em-caso-de-revenda-troca-de-membro-no-grupo-especifico">7.3. Procedimentos em caso de revenda (troca de membro no Grupo Específico)</h3>
@@ -750,7 +764,7 @@
 </ol>
 <p>Configurações → Armazenamento → Jogos e aplicativos → Excluir jogo</p>
 <ol class="alpha" start="4">
-<li>Exclua o usuário/conta do console:</li>
+<li>Exclua o usuário do console:</li>
 </ol>
 <p>Configurações → Usuários e Contas → Outros → Excluir usuário</p>
 <h3 id="cap7-6-duvidas-e-suporte">7.6. Dúvidas e suporte</h3>
@@ -815,10 +829,14 @@
   const setOffsets = () => {
     const header = document.querySelector('.site-header');
     if (!header) return;
-    const h = Math.ceil(header.getBoundingClientRect().height);
-    // margem extra para não "colar" no topo
+    const h = Math.ceil(header.getBoundingClientRect().height || 0);
     document.documentElement.style.setProperty('--scroll-offset', (h + 14) + 'px');
   };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setOffsets, { once: true });
+  } else {
+    setOffsets();
+  }
   window.addEventListener('load', setOffsets, { once: true });
   window.addEventListener('resize', setOffsets);
 })();
