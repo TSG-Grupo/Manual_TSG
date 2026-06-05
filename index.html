@@ -121,8 +121,10 @@
       padding: 1rem .75rem 4rem;
     }
 
+    /* As âncoras são controladas pelo scroll-padding do html e pelo JavaScript abaixo.
+       Não use scroll-margin aqui, para evitar deslocamento duplicado no celular. */
     h2, h3, h4 {
-      scroll-margin-top: var(--scroll-offset);
+      scroll-margin-top: 0;
     }
 
     h2 {
@@ -705,7 +707,7 @@
 <li>Para o e-mail de login da conta PSN, use o padrão do Gmail com “+”:</li>
 </ol>
 <p>Formato: seu.usuario+nomedojogo@gmail.com</p>
-<p>Exemplo: supondo que o email pessoal do usuário seja helliott_666@gmail.com, e o game a ser adquirido o Lies of P, a conta a ser criada deve ser: helliott_666+liesofp@gmail.com, ou seja, tudo que vier antes do "@","+", "nome do jogo(ou iniciais)", "-tsg", "@gmail.com"</p>
+<p>Exemplo: supondo que o email pessoal do usuário seja helliott_666@gmail.com, e o game a ser adquirido o Lies of P, a conta a ser criada deve ser: helliott_666+liesofp@gmail.com, ou seja, tudo que vier antes do "@","+", "nome do jogo(ou iniciais)", "@gmail.com"</p>
 <ol class="alpha" start="4">
 <li>Vantagens: você recebe notificações no seu e-mail principal, reduz risco de inatividade, facilita recuperação de conta e evita criar/gerenciar vários e-mails.</li>
 <li>Após criar a conta PSN, faça login nela, compre o jogo e inicie o download.</li>
@@ -826,17 +828,47 @@
 </footer>
 <script>
 (() => {
-  const setOffsets = () => {
+  const getHeaderOffset = () => {
     const header = document.querySelector('.site-header');
-    if (!header) return;
-    const h = Math.ceil(header.getBoundingClientRect().height || 0);
-    document.documentElement.style.setProperty('--scroll-offset', (h + 14) + 'px');
+    const h = header ? Math.ceil(header.getBoundingClientRect().height || 0) : 0;
+    return h + 12; // pequeno respiro abaixo do cabeçalho fixo
   };
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setOffsets, { once: true });
-  } else {
+
+  const setOffsets = () => {
+    document.documentElement.style.setProperty('--scroll-offset', getHeaderOffset() + 'px');
+  };
+
+  const scrollToTarget = (target) => {
+    if (!target) return;
+    const y = target.getBoundingClientRect().top + window.pageYOffset - getHeaderOffset();
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  };
+
+  const setupAnchorClicks = () => {
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        event.preventDefault();
+        history.pushState(null, '', href);
+        scrollToTarget(target);
+      });
+    });
+  };
+
+  const init = () => {
     setOffsets();
+    setupAnchorClicks();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
   }
+
   window.addEventListener('load', setOffsets, { once: true });
   window.addEventListener('resize', setOffsets);
 })();
